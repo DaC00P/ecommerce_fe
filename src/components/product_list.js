@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import bindActionCreators from 'react-redux';
+
+import {fetchProducts} from '../actions/index';
 
 class ProductList extends Component {
   constructor(props) {
@@ -8,6 +11,13 @@ class ProductList extends Component {
   }
 
   renderProducts() {
+    if(!this.props.products){
+      return(
+        <div>
+          Loading, please wait..
+        </div>
+      )
+    }
     const listOfProfucts = this.props.products.map((product) => {
       return(
         <li key={product.name}>
@@ -32,8 +42,10 @@ class ProductList extends Component {
 
 }
 
-function mapStateToProps({products}) {
-  return { products };
+function mapStateToProps({state}) {
+  return {
+    products: state
+  }
 }
 
-export default connect(mapStateToProps)(ProductList)
+export default connect(mapStateToProps, {fetchProducts})(ProductList)
