@@ -15,6 +15,7 @@ class ProductList extends Component {
   }
 
   renderProducts() {
+    // TODO refactor state so its not so goddamn nested TODO
     let products = this.props.products.products;
     if(!products.length){
       return(
@@ -23,9 +24,7 @@ class ProductList extends Component {
         </div>
       )
     }
-    console.log(products)
     const listOfProfucts = products.map((product) => {
-      console.log('MAP')
       return(
         <li key={product.name}>
           {product.name}
@@ -40,7 +39,6 @@ class ProductList extends Component {
   }
 
   render(){
-    console.log(this.props)
     return(
       <div>
         {this.renderProducts()}
