@@ -15,7 +15,6 @@ class ProductList extends Component {
   }
 
   renderProducts() {
-    console.log(this.props.products);
     if(!this.props.products){
       return(
         <div>
@@ -38,6 +37,7 @@ class ProductList extends Component {
   }
 
   render(){
+    console.log(this.props);
     return(
       <div>
         {this.renderProducts()}
