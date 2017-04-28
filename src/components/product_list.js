@@ -15,14 +15,17 @@ class ProductList extends Component {
   }
 
   renderProducts() {
-    if(!this.props.products.length){
+    let products = this.props.products.products;
+    if(!products.length){
       return(
         <div>
           Loading, please wait..
         </div>
       )
     }
-    const listOfProfucts = this.props.products.map((product) => {
+    console.log(products)
+    const listOfProfucts = products.map((product) => {
+      console.log('MAP')
       return(
         <li key={product.name}>
           {product.name}
