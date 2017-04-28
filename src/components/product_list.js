@@ -10,7 +10,12 @@ class ProductList extends Component {
     this.renderProducts = this.renderProducts.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchProducts();
+  }
+
   renderProducts() {
+    console.log(this.props.products);
     if(!this.props.products){
       return(
         <div>

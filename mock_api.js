@@ -5,6 +5,8 @@ const Server = Express();
 const Path = require('path');
 const BodyParser = require('body-parser');
 
+Server.use(Express.static(Path.join(__dirname + '/assets')));
+
 Server.use(BodyParser.urlencoded({
   extended: true,
   parameterLimit: 1000,
@@ -23,22 +25,26 @@ const mockProducts = {products: [{name: 'ball', description: 'big red ball', num
                                   {name: 'ferrari', description: 'because adults need toys too', numberRemaining: 11, categories: ['adult toys', 'cars', 'luxery'], price: 100000}]}
 
 
+Server.get('/', function(req, res){
+  res.sendFile(Path.join(__dirname + '/index.html'));
+});
+
+Server.get('/bundle.js', function(req, res){
+  res.sendFile(__dirname + '/bundle.js');
+});
+
+Server.get('/style.css', function(req, res){
+  res.sendFile(__dirname + '/style.css');
+});
+
+
 Server.get('/products', function(req, res){
-  res.json(mockProducts);
+  console.log('##########PRODUCTS##########')
+  console.log(mockProducts);
+  res.send(mockProducts);
 });
 
 
 Server.listen( process.env.PORT || 8003, function(){
-  console.log('Server Running');
-});
-
-// FOR LIVE SERVER
-// Server.listen(process.env.PORT, function(){
-//   console.log('Server Running');
-// });
-
-
-// FOR DEV SERVER
-Server.listen(8000, function(){
   console.log('Server Running');
 });

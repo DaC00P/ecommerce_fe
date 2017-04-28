@@ -5,8 +5,9 @@
   "main": "index.js",
   "repository": "https://github.com/DaC00P/ecommerce_fe",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "api-start": "DEBUG=express:* node mock_api.js"
+    "start": "node ./node_modules/webpack/bin",
+    "api-start": "DEBUG=express:* node mock_api.js",
+    "build": "webpack --watch"
   },
   "author": "Coop & Scott",
   "license": "None, but credit us if you use our code. Please.",

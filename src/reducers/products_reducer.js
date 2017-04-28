@@ -12,12 +12,8 @@ export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
     case FETCH_PRODUCTS:
       //this will have to use the spread operator to combine and return a new product state on an API call
-      console.log('switch p')
-      console.log('#######STATE#########', state);
-      return {products: action.payload};
+      return {products: action.payload.data.products};
     default:
-      console.log('switch d')
-      console.log('#######STATE#########', state);
       return state;
   }
 }
