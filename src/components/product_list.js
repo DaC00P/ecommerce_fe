@@ -15,7 +15,7 @@ class ProductList extends Component {
   }
 
   renderProducts() {
-    if(!this.props.products){
+    if(!this.props.products.length){
       return(
         <div>
           Loading, please wait..
@@ -37,7 +37,7 @@ class ProductList extends Component {
   }
 
   render(){
-    console.log(this.props);
+    console.log(this.props)
     return(
       <div>
         {this.renderProducts()}
@@ -47,10 +47,8 @@ class ProductList extends Component {
 
 }
 
-function mapStateToProps({state}) {
-  return {
-    products: state
-  }
+function mapStateToProps({ products }) {
+  return { products };
 }
 
 export default connect(mapStateToProps, {fetchProducts})(ProductList)
