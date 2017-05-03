@@ -1,4 +1,4 @@
-import { FETCH_PRODUCTS } from '../actions/types'
+import { FETCH_PRODUCTS } from '../actions/actions'
 
 const INITIAL_STATE = {products: {}};
 
