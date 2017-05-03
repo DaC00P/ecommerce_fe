@@ -24,6 +24,7 @@ const mockProducts = {products: [{name: 'ball', description: 'big red ball', num
                                   {name: 'doll', description: 'a cool hipster doll wearing plaid', numberRemaining: 1, categories: ['dolls'], price: 5},
                                   {name: 'ferrari', description: 'because adults need toys too', numberRemaining: 11, categories: ['adult toys', 'cars', 'luxery'], price: 100000}]}
 
+const mockSingleProduct = {id: 1, name: 'ferrari', description: 'because adults need toys too', numberRemaining: 11, categories: ['adult toys', 'cars', 'luxery'], price: 100000}
 
 Server.get('/', function(req, res){
   res.sendFile(Path.join(__dirname + '/index.html'));
@@ -42,6 +43,12 @@ Server.get('/products', function(req, res){
   console.log('##########PRODUCTS##########')
   console.log(mockProducts);
   res.send(mockProducts);
+});
+
+Server.get('/products/1', function(req, res){
+  console.log('##########PRODUCTS##########')
+  console.log(mockSingleProduct);
+  res.send(mockSingleProduct);
 });
 
 
