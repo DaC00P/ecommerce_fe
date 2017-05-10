@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import bindActionCreators from 'react-redux';
+import { browserHistory } from 'react-router';
 
 import {fetchProducts} from '../actions/actions';
 
@@ -8,10 +9,19 @@ class ProductList extends Component {
   constructor(props) {
     super(props)
     this.renderProducts = this.renderProducts.bind(this);
+    this.goToProduct = this.goToProduct.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProducts();
+  }
+
+  //setup after router is working
+  goToProduct(id) {
+    return () => {
+      console.log('redirect');
+      browserHistory.push(`/items/${id}`);
+    }
   }
 
   renderProducts() {
@@ -24,16 +34,17 @@ class ProductList extends Component {
         </div>
       )
     }
-    const listOfProfucts = products.map((product) => {
+    const listOfProducts = products.map((product) => {
+      console.log(product);
       return(
-        <li key={product.name}>
+        <li key={product.name} onClick={this.goToProduct(product.id)}>
           {product.name}
         </li>
       )
     });
     return(
       <ul>
-        {listOfProfucts}
+        {listOfProducts}
       </ul>
     )
   }
