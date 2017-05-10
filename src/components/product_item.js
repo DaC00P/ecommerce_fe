@@ -12,15 +12,18 @@ class ProductItem extends Component {
   }
 
   render() {
-    <div>
-      <h2>{product.name}</h2>
-      <ul>
-        <li>{product.description}</li>
-        <li>{product.numberRemaining}</li>
-        <li>{product.categories}</li>
-        <li>{product.price}</li>
-      </ul>
-    </div>
+    console.log('rendering');
+    return(
+      <div>
+        <h2>{product.name}</h2>
+        <ul>
+          <li>{product.description}</li>
+          <li>{product.numberRemaining}</li>
+          <li>{product.categories}</li>
+          <li>{product.price}</li>
+        </ul>
+      </div>
+    );
   }
 }
 
