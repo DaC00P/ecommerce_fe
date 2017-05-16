@@ -20,7 +20,7 @@ class ProductList extends Component {
   goToProduct(id) {
     return () => {
       console.log('redirect');
-      browserHistory.push(`/items/${id}`);
+      browserHistory.push(`/items`);
     }
   }
 
