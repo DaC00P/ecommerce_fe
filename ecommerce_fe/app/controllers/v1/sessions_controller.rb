@@ -17,6 +17,15 @@ module V1
       end
     end
 
+    def destroy
+      @user = User.find_for_database_authentication(email: params[:username])
+      if @user
+        sign_out(:user, @user)
+      end
+      # unsure what to render after signing out
+      render json: @user
+    end
+
     private
 
     def invalid_login_attempt
