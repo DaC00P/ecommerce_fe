@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import jwt from 'jsonwebtoken';
 
 import { FETCH_PRODUCTS, FETCH_PRODUCT } from './types';
 import { mockProducts, mockSingleProduct } from '../../mock_data';

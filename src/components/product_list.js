@@ -16,7 +16,6 @@ class ProductList extends Component {
     this.props.fetchProducts();
   }
 
-  //setup after router is working
   goToProduct(id) {
     return () => {
       console.log('redirect');
@@ -26,6 +25,7 @@ class ProductList extends Component {
 
   renderProducts() {
     // TODO refactor state so its not so goddamn nested TODO
+    console.log('RENDERPROD', this.props);
     let products = this.props.products.products;
     if(!products.length){
       return(
@@ -59,8 +59,10 @@ class ProductList extends Component {
 
 }
 
-function mapStateToProps({ products }) {
-  return { products };
+function mapStateToProps(state) {
+  return {
+      products: state.products.products
+  }
 }
 
 export default connect(mapStateToProps, {fetchProducts})(ProductList)

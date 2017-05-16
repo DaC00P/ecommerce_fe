@@ -1,14 +1,12 @@
-import { FETCH_PRODUCTS } from '../actions/types'
+import { FETCH_PRODUCTS } from '../actions/types';
+import { mockProducts } from '../../mock_data';
 
-const INITIAL_STATE = {products: {}};
+const INITIAL_STATE = {products: mockProducts};
 
 export default function (state = INITIAL_STATE, action) {
-  console.log(action);
   switch (action.type) {
     case FETCH_PRODUCTS:
-      //this will have to use the spread operator to combine and return a new product state on an API call
-      console.log('state', {...state, products: action.payload.products});
-      return {...state, products: action.payload.products}
+      return state;
     default:
       return state;
   }
