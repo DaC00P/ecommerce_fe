@@ -10,7 +10,7 @@ const ROOT_URL = 'http://localhost:3000/';
 
 export function createUser(data) {
   data = {"user": data};
-  const request = axios.post(`${ROOT_URL}users`, data);
+  const request = axios.post(`${ROOT_URL_V1}users`, data);
 
   return (dispatch) => {
     return request.then((response) => {
